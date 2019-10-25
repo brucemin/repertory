@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品列表</title>
+<link href="/static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="wrap">
+<!-- main begin-->
+  <div class="sale">
+    <h1 class="lf">在线拍卖系统</h1>
+    <div class="logout right"><a href="/login/" title="注销">注销</a></div>
+      <div class="logout right" style="width: 100px"><a href="/result/" title="查看竞拍结果">查看竞拍结果</a></div>
+  </div>
+
+  <div class="items">
+      <ul class="rows even strong">
+        <li>名称</li>
+        <li class="list-wd">描述</li>
+        <li>开始时间</li>
+        <li>结束时间</li>
+        <li>起拍价</li>
+        <li class="borderno">操作</li>
+      </ul>
+      {% for i in list %}
+      <ul class="rows">
+        <li>{{ i.name }}</li>
+        <li class="list-wd">{{ i.describe }}</li>
+        <li>{{ i.start|date:"Y-m-d H:i:s" }}</li>
+        <li>{{ i.stop|date:"Y-m-d H:i:s" }}</li>
+        <li>{{ i.prict }}</li>
+        <li class="borderno red"><a href="/auction/{{ i.id }}/">竞拍</a></li>
+      </ul>
+      {% endfor %}
+{#    <div class="page">#}
+{#        <a href="#" title="">首页</a>#}
+{#        <a href="#" title="">上一页</a>#}
+{#      #}
+{#        <a href="#" title="">下一页</a>#}
+{#        <a href="#" title="">尾页</a> #}
+{#      </div>#}
+  </div>
+<!-- main end-->
+</div>
+</body>
+</html>
